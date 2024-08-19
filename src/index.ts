@@ -1,3 +1,14 @@
-console.log("first")
+function sum1(a:number, b:number) {
+    const res = a + b
+}
 
-// This is a comment
+function sum2(a:number, b:number) {
+    const res = a + b
+    return res
+}
+
+const result1 = sum1(1, 2)
+console.log("function without return (void) " + result1)
+
+const result2 = sum2(1, 2)
+console.log("function with return " + result2)
