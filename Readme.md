@@ -30,7 +30,7 @@ let variable: any;
 
 variable = 5;          // OK
 variable = "hello";    // OK
-variable = true;       // 
+variable = true;       // OK
 ```
 
 ### Arrays in TypeScript
@@ -55,3 +55,40 @@ const any: any[] = ["abc", 1, true]
 any.push("Mahmoud) 
 any.push(5) 
 ```
+
+### tuple in TypeScript
+array with fix type & length
+ ```
+ const vars: [number, string] = [1, "Mahmoud"]        // OK
+ const vars: [number, string] = [true, "Mahmoud"]     // Error
+ const vars: [number, string] = [1, "Mahmoud", false] // Error
+ ```
+
+### Type `enum` in TypeScript
+In TypeScript, an enum (short for "enumeration") is a special data structure that allows you to define a set of named constants, which can be either numeric or string-based. Enums are useful for creating a collection of related values that can be used more descriptively in your code.
+* Numeric Enums
+```
+enum Direction {
+    Up,    // 0
+    Down,  // 1
+    Left,  // 2
+    Right  // 3
+}
+
+let move: Direction = Direction.Up;
+console.log(move);  // Output: 0
+```
+
+* String Enums
+```
+enum Direction {
+    Up = "UP",
+    Down = "DOWN",
+    Left = "LEFT",
+    Right = "RIGHT"
+}
+
+let move: Direction = Direction.Right;
+console.log(move);  // Output: "RIGHT"
+```
+
