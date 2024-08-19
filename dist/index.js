@@ -1,6 +1,7 @@
 "use strict";
 function sum1(a, b) {
     const res = a + b;
+    console.log(res);
 }
 function sum2(a, b) {
     const res = a + b;

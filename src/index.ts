@@ -1,5 +1,6 @@
 function sum1(a:number, b:number) {
     const res = a + b
+    console.log(res)
 }
 
 function sum2(a:number, b:number) {
