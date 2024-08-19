@@ -22,14 +22,16 @@
     tsc --init
 ```
 
-### `any` Type in TypeScript
+###  Type:`any` in TypeScript
 The any type is a special type that can represent any value, regardless of its type.
 
-``let variable: any;
+```
+let variable: any;
 
 variable = 5;          // OK
 variable = "hello";    // OK
-variable = true;       // OK``
+variable = true;       // 
+```
 
 ### Arrays in TypeScript
 Arrays in TypeScript can be of various types. Here are a few examples:
