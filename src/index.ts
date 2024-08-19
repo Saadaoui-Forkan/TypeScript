@@ -1,15 +1,24 @@
-function sum1(a:number, b:number) {
-    const res = a + b
-    console.log(res)
+class Account {
+    /* Properties */
+    id: number = 0;
+    owner: string = "";
+    balance: number = 0;
+
+    constructor(id: number, owner: string, balance: number) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+
+    /* Method */
+    deposit(amount: number): void {
+        if (amount <=0) {
+            throw new Error("Amount can't be less than 1")
+        }
+        this.balance = this.balance + amount
+    }
 }
 
-function sum2(a:number, b:number) {
-    const res = a + b
-    return res
-}
-
-const result1 = sum1(1, 2)
-console.log("function without return (void) " + result1)
-
-const result2 = sum2(1, 2)
-console.log("function with return " + result2)
+let myAccount = new Account(1, "Mahmoud", 10)
+myAccount.deposit(20)
+console.log(myAccount)

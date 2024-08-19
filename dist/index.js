@@ -1,13 +1,20 @@
 "use strict";
-function sum1(a, b) {
-    const res = a + b;
-    console.log(res);
+class Account {
+    constructor(id, owner, balance) {
+        this.id = 0;
+        this.owner = "";
+        this.balance = 0;
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    deposit(amount) {
+        if (amount <= 0) {
+            throw new Error("Amount can't be less than 1");
+        }
+        this.balance = this.balance + amount;
+    }
 }
-function sum2(a, b) {
-    const res = a + b;
-    return res;
-}
-const result1 = sum1(1, 2);
-console.log("function without return (void) " + result1);
-const result2 = sum2(1, 2);
-console.log("function with return " + result2);
+let myAccount = new Account(1, "Mahmoud", 10);
+myAccount.deposit(-20);
+console.log(myAccount);
