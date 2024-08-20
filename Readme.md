@@ -92,3 +92,41 @@ let move: Direction = Direction.Right;
 console.log(move);  // Output: "RIGHT"
 ```
 
+### Access Modifiers in TypeScript
+1. Public
+2. Private
+3. Protected
+
+`readonly` can't be changed
+`?` optional
+`instanceof` return a boolean value
+
+* __public__: By default, all properties and methods of a class are public. This means they can be accessed and modified from anywhere, including from outside the class.
+* __private__: A property or method marked as private is only accessible within the class where it is defined. It cannot be accessed or modified from outside that class.
+```
+class Account {
+    /* Properties */
+    readonly id: number;
+    owner: string;
+    private balance: number;
+    username?:string;
+
+    constructor(id: number, owner: string, balance: number) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+
+    /* Method */
+    deposit(amount: number): void {
+        if (amount <=0) {
+            throw new Error("Amount can't be less than 1")
+        }
+        this.balance = this.balance + amount
+    }
+}
+
+let myAccount = new Account(1, "Mahmoud", 10)
+myAccount.balance = 200  //Error: Property 'balance' is private and only accessible within class 'Account'
+```
+

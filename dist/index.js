@@ -1,9 +1,6 @@
 "use strict";
 class Account {
     constructor(id, owner, balance) {
-        this.id = 0;
-        this.owner = "";
-        this.balance = 0;
         this.id = id;
         this.owner = owner;
         this.balance = balance;
@@ -14,7 +11,11 @@ class Account {
         }
         this.balance = this.balance + amount;
     }
+    getBalance() {
+        return this.balance;
+    }
 }
 let myAccount = new Account(1, "Mahmoud", 10);
-myAccount.deposit(-20);
-console.log(myAccount);
+myAccount.deposit(10);
+const myBalance = myAccount.getBalance();
+console.log(myBalance);

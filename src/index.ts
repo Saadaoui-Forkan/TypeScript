@@ -1,8 +1,9 @@
 class Account {
     /* Properties */
-    id: number = 0;
-    owner: string = "";
-    balance: number = 0;
+    readonly id: number;
+    owner: string;
+    private balance: number;
+    username?:string;
 
     constructor(id: number, owner: string, balance: number) {
         this.id = id;
@@ -17,8 +18,12 @@ class Account {
         }
         this.balance = this.balance + amount
     }
+    getBalance (): number {
+        return this.balance
+    }
 }
 
 let myAccount = new Account(1, "Mahmoud", 10)
-myAccount.deposit(20)
-console.log(myAccount)
+myAccount.deposit(10)
+const myBalance = myAccount.getBalance()
+console.log(myBalance)
