@@ -63,6 +63,12 @@ strings.push("Mahmoud)
 strings.push(5) //Error
 ```
 
+* Type Annotations With Multi-Dimensional Array
+```
+let arrOne: (string | number)[] = [1, 2, 3, 4, "A", "B", "C"];
+let arrTwo: (string | number | string[] | boolean)[] = [1, 2, 3, 4, "A", "B", ["C", "D"], true, false];
+```
+
 * Array of any Type
 ```
 const any: any[] = ["abc", 1, true]
@@ -106,13 +112,26 @@ let move: Direction = Direction.Right;
 console.log(move);  // Output: "RIGHT"
 ```
 
+### Type Annotations With Functions
+- noImplicitAny
+
+- noImplicitReturns
+--- Will Check All Code Paths In A Function To Ensure They Return A Value
+
+- noUnusedLocals
+--- Report Errors On Unused Local Variables
+
+- noUnusedParameters
+--- Report Errors On Unused Parameters In Functions.
+
 ### Access Modifiers in TypeScript
 1. Public
 2. Private
 3. Protected
 
 `readonly` can't be changed
-`?` optional
+`?` optional parameter
+`+true` ===> 1
 `instanceof` return a boolean value
 
 * __public__: By default, all properties and methods of a class are public. This means they can be accessed and modified from anywhere, including from outside the class.
