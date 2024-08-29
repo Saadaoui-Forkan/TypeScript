@@ -1,7 +1,5 @@
 "use strict";
-const add = function (num1, num2) {
-    return num1 + num2;
-};
-console.log(add(10, 20));
-const addWithArrow = (num1, num2) => num1 + num2;
-console.log(addWithArrow(10, 20));
+let myImg = document.getElementById("my-img");
+console.log(myImg.src);
+let data = 1000;
+console.log(data.repeat(3));

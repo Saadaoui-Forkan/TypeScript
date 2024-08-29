@@ -1,15 +1,13 @@
 /*
-  Function
-  - Anonymous Function
-  - Arrow Function
+  Data Types
+  - Type Assertions
+  --- Sometime Compiler Doesnt Know The Information We Do
+  --- TypeScript Is Not Performing Any Check To Make Sure Type Assertion Is Valid
 */
 
-const add = function (num1: number, num2: number): number {
-  return num1 + num2;
-};
+// let myImg = document.getElementById("my-img") as HTMLImageElement;
+let myImg = <HTMLImageElement> document.getElementById("my-img");
+console.log(myImg.src);
 
-console.log(add(10, 20));
-
-const addWithArrow = (num1: number, num2: number): number => num1 + num2;
-
-console.log(addWithArrow(10, 20));
+let data: any = 1000;
+console.log((data as string).repeat(3));
