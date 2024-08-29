@@ -84,6 +84,17 @@ array with fix type & length
  const vars: [number, string] = [1, "Mahmoud", false] // Error
  ```
 
+### Void And Never
+- Void
+  --- Function That Will Return Nothing
+  --- Function In JavaScript That Not Return A Value Will Show undefined
+  --- undefined is not void
+
+- Never
+  --- Return Type Never Returns
+  --- The Function Doesn't Have A Normal Completion
+  --- It Throws An Error Or Never Finishes Running At All "Infinite Loop"
+
 ### Type `enum` in TypeScript
 In TypeScript, an enum (short for "enumeration") is a special data structure that allows you to define a set of named constants, which can be either numeric or string-based. Enums are useful for creating a collection of related values that can be used more descriptively in your code.
 * Numeric Enums
