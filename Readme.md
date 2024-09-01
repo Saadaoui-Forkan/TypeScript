@@ -135,6 +135,19 @@ console.log(move);  // Output: "RIGHT"
 - noUnusedParameters
 --- Report Errors On Unused Parameters In Functions.
 
+### Interface
+```
+  Interface
+  - Interface Declaration
+  --- Serve Like Types
+  --- The Interface Describes The Shape Of An Object
+  --- It Defines The Syntax To Follow
+
+  --- Use With Object
+  --- Use With Function
+  --- Use Read Only And Optional Operator
+```
+
 ### Access Modifiers in TypeScript
 1. Public
 2. Private
