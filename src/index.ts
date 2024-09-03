@@ -1,132 +1,163 @@
 /**
- * Interface Declaration
+ * Class Type Annotations
 */
-interface User {
-  id?: number,
-  readonly username: string,
-  country: string
+class User {
+  name: string;
+  age: number;
+  email: string;
+  msg: () => string;
+  constructor(name: string, age: number, email: string) {
+    this.name = name
+    this.age = age;
+    this.email = email;
+    this.msg = function () {
+      return `Hello! I am ${this.name} and I have ${this.age} years.`
+    }
+  }
+  getMail = () => {
+    return `${this.name} mail is: ${this.email}`;
+  };
 }
 
-let userDetails: User = {
-  id: 100,
-  username: "Elzero",
-  country: "Egypt"
-}
-
-userDetails.country = "Syria";
-
-console.log(userDetails);
-
-function getData(data: User) {
-  console.log(`Id Is ${data.id}`);
-  console.log(`Username Is ${data.username}`);
-  console.log(`Country Is ${data.country}`);
-}
-
-getData({ id: 200, username: "Osama", country: "KSA" });
+const userOne = new User ("Mahmoud", 35, "mahmoud@mail.com")
+console.log(userOne)
+console.log(userOne.getMail())
+console.log(userOne.msg())
 
 /**
- * Interface Method & Parameter
+ * Class Access Modifiers
 */
-interface Car {
-  id: number;
-  owner: string;
-  owner_country: string;
-  sayHello() : string;
-  sayWelcome: () => string;
-  getDouble(num: number) : number;
-}
-
-let user: Car = {
-  id: 100,
-  owner: "Elzero",
-  owner_country: "Egypt",
-  sayHello() {
-    return `Hello ${this.owner}`;
-  },
-  sayWelcome: () => {
-    return `Welcome ${user.owner}`;
-  },
-  getDouble(n) {
-    return n * 2;
+class Person {
+  msg: () => string;
+  constructor(private username: string, protected salary: number,public readonly address: string) {
+    this.msg = function () {
+      return `Hello ${this.username} Your Salary Is ${this.salary}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this.username} Your Salary Is ${this.salary}`;
   }
 }
 
-console.log(user.id);
-console.log(user.sayHello());
-console.log(user.sayWelcome());
-console.log(user.getDouble(100));
+let personOne = new Person("Elzero", 6000, "Cairo");
+
+// console.log(userOne.username);
+// console.log(userOne.salary);
+console.log(personOne.msg());
+console.log(personOne.sayMsg());
 
 /**
- * Interface ReOpen And Use Cases
+ * Get & Set Accessors
 */
-
-// Homepage
-interface Settings {
-  readonly theme: boolean;
-  font: string;
+class Users {
+  public get username(): string {
+    return this._username;
+  }
+  public set username(value: string) {
+    this._username = value;
+  }
+  msg: () => string;
+  constructor(private _username: string, public salary: number, public readonly address: string) {
+    this.msg = function () {
+      return `Hello ${this._username} Your Salary Is ${this.salary}`;
+    }
+  }
+  sayMsg() {
+    return `Hello ${this._username} Your Salary Is ${this.salary}`;
+  }
+  // get username() : string {
+  //   return this._username;
+  // }
+  // set username(value: string) {
+  //   this._username = value;
+  // }
 }
 
-// Articles Page
-interface Settings {
-  sidebar: boolean;
-}
+let usersOne = new Users("Elzero", 6000, "Cairo");
 
-// Contact Page
-interface Settings {
-  external: boolean;
-}
-
-let userSettings: Settings = {
-  theme: true,
-  font: "Open Sans",
-  sidebar: false,
-  external: true
-}
+console.log(usersOne.username);
+usersOne.username = "Ahmed";
+console.log(usersOne.username);
+console.log(usersOne.salary);
+console.log(usersOne.msg());
+console.log(usersOne.sayMsg());
 
 /**
- * Interface Extend
+ * Class Static Members
+ * *** Don't Use "name, length, call"
 */
-interface Person {
-  id: number;
-  username: string;
-  country: string;
+class Car {
+  private static created: number = 0;
+  static getCount(): void {
+    console.log(`${this.created} Objects Created`)
+  }
+  constructor(public model: string) {
+    Car.created ++
+  }
 }
 
-interface Moderator {
-  role: string | number;
-}
-
-interface Admin extends Person, Moderator {
-  protect?: boolean;
-}
-
-let person: Admin = {
-  id: 100,
-  username: "Elzero",
-  country: "Egypt",
-  role: "Mod",
-  protect: true
-}
-
-console.log(person.id);
+let c1 = new Car("Peugeot");
+let c2 = new Car("Toyota");
+let c3 = new Car("Renault");
+Car.getCount()
 
 /**
- * Interface Final Discussion
+ * Class Implement Interface
 */
-let el = document.getElementById("id") as HTMLElement;
-
-// Homepage
-type Setting = {
-  readonly theme: boolean;
-  font: string;
-  sidebar: boolean;
-  external: boolean;
+interface Settings {
+  theme: boolean;
+  brand: string;
+  save(): void;
 }
 
-let userSetting: Setting = {
-  theme: true,
-  font: "Open Sans",
-  sidebar: false,
-  external: true
+class Product implements Settings {
+  constructor(public name: string, public theme: boolean, public brand: string) {}
+  save(): void {
+    console.log(`saved`)
+  }
+  update(): void {
+    console.log(`updated`)
+  }
 }
+
+let productOne = new Product("Laptop", true, "Asus")
+console.log(productOne.name)
+console.log(productOne.brand)
+
+productOne.save()
+productOne.update()
+
+/*
+  Class
+  - Abstract Classes And Members
+  --- We Cannot Create An Instance Of An Abstract Class
+*/
+
+abstract class Food {
+  constructor(public title: string) {}
+  abstract getCookingTime() : void;
+}
+
+class Pizza extends Food {
+  constructor(title: string, public price: number) {
+    super(title);
+  }
+  getCookingTime() : void {
+    console.log(`Cooking Time For Pizza Is 1 Hour`);
+  }
+}
+
+class Burger extends Food {
+  constructor(title: string, public price: number) {
+    super(title);
+  }
+  getCookingTime() : void {
+    console.log(`Cooking Time For Burger Is Half Hour`);
+  }
+}
+
+let pizzaOne = new Pizza("Awesome Pizza", 100);
+
+console.log(pizzaOne.title);
+console.log(pizzaOne.price);
+pizzaOne.getCookingTime();

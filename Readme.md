@@ -158,8 +158,22 @@ console.log(move);  // Output: "RIGHT"
 `+true` ===> 1
 `instanceof` return a boolean value
 
-* __public__: By default, all properties and methods of a class are public. This means they can be accessed and modified from anywhere, including from outside the class.
-* __private__: A property or method marked as private is only accessible within the class where it is defined. It cannot be accessed or modified from outside that class.
+```
+  Class
+  - Data Access Modifiers & Parameters Properties
+  --- Public
+  ------ All Members Of A Class In TypeScript Are Public (default)
+  ------ All Public Members Can Be Accessed Anywhere Without Any Restrictions
+  --- Private
+  ------ Members Are Visible Only To That Class And Are Not Accessible Outside The Class
+  --- Protected
+  ------ Same Like Private But Can Be Accessed Using The Deriving Class
+
+  - TypeScript Is A Layer On Top Of JavaScript
+  - It Should Remove All Annotations And Although Access Modifiers "Private For Example"
+
+```
+*********
 ```
 class Account {
     /* Properties */
