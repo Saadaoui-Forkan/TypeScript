@@ -1,34 +1,22 @@
-class Player {
-  constructor(public name: string) {}
-  attack() : void {
-    console.log("Attacking Now");
-  }
+function returnNumber(val: number) : number {
+  return val;
+}
+function returnString(val: string) : string {
+  return val;
+}
+function returnBoolean(val: boolean) : boolean {
+  return val;
 }
 
-class Amazon extends Player {
-  constructor(name: string, public spears: number) {
-    super(name);
-  }
-  override attack(): void {
-    // super.attack();
-    console.log("Attacking With Spear");
-    this.spears -= 1;
-  }
+console.log(returnNumber(100));
+console.log(returnString("Elzero"));
+console.log(returnBoolean(true));
+
+function returnType<T>(val: T) : T {
+  return val;
 }
 
-class Barbarian extends Player {
-  constructor(name: string, public axeDurability: number) {
-    super(name);
-  }
-  override attack(): void {
-    // super.attack();
-    console.log("Attacking With Axe");
-    this.axeDurability -= 1;
-  }
-}
-
-let barOne = new Barbarian("Elzero", 100);
-
-console.log(barOne.name);
-barOne.attack();
-console.log(barOne.axeDurability);
+console.log(returnType<number>(100));
+console.log(returnType<string>("Elzero"));
+console.log(returnType<boolean>(true));
+console.log(returnType<number[]>([1, 2, 3, 4]));

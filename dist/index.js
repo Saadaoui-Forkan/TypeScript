@@ -1,33 +1,20 @@
 "use strict";
-class Player {
-    constructor(name) {
-        this.name = name;
-    }
-    attack() {
-        console.log("Attacking Now");
-    }
+function returnNumber(val) {
+    return val;
 }
-class Amazon extends Player {
-    constructor(name, spears) {
-        super(name);
-        this.spears = spears;
-    }
-    attack() {
-        console.log("Attacking With Spear");
-        this.spears -= 1;
-    }
+function returnString(val) {
+    return val;
 }
-class Barbarian extends Player {
-    constructor(name, axeDurability) {
-        super(name);
-        this.axeDurability = axeDurability;
-    }
-    attack() {
-        console.log("Attacking With Axe");
-        this.axeDurability -= 1;
-    }
+function returnBoolean(val) {
+    return val;
 }
-let barOne = new Barbarian("Elzero", 100);
-console.log(barOne.name);
-barOne.attack();
-console.log(barOne.axeDurability);
+console.log(returnNumber(100));
+console.log(returnString("Elzero"));
+console.log(returnBoolean(true));
+function returnType(val) {
+    return val;
+}
+console.log(returnType(100));
+console.log(returnType("Elzero"));
+console.log(returnType(true));
+console.log(returnType([1, 2, 3, 4]));
