@@ -1,20 +1,19 @@
 "use strict";
-function returnNumber(val) {
-    return val;
-}
-function returnString(val) {
-    return val;
-}
-function returnBoolean(val) {
-    return val;
-}
-console.log(returnNumber(100));
-console.log(returnString("Elzero"));
-console.log(returnBoolean(true));
 function returnType(val) {
     return val;
 }
 console.log(returnType(100));
 console.log(returnType("Elzero"));
-console.log(returnType(true));
-console.log(returnType([1, 2, 3, 4]));
+const returnTypeArrowSyntax = (val) => val;
+console.log(returnTypeArrowSyntax(100));
+console.log(returnTypeArrowSyntax("Elzero"));
+function testType(val) {
+    return `The Value Is ${val} And Type Is ${typeof val}`;
+}
+console.log(testType(100));
+console.log(testType("Elzero"));
+function multipleTypes(valueOne, valueTwo) {
+    return `The First Value Is ${valueOne} And Second Value ${valueTwo}`;
+}
+console.log(multipleTypes("Osama", 100));
+console.log(multipleTypes("Elzero", true));
